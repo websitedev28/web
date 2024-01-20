@@ -11,6 +11,21 @@
 		src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		crossorigin="anonymous"></script>
+		<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/nPd6lZNnLmk47Flr/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
     <title>Document</title>
     <style>
         body{
@@ -95,18 +110,5 @@ input:focus {
             </form>
           </div>
     </div>
-	<script>
-        fetch("https://api.apispreadsheets.com/data/nPd6lZNnLmk47Flr/", {
-	method: "POST",
-	body: JSON.stringify({"data": {"email":"value","password":"value"}}),
-}).then(res =>{
-	if (res.status === 201){
-		// SUCCESS
-	}
-	else{
-		// ERROR
-	}
-})
-    </script>
 </body>
 </html>
