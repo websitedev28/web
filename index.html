@@ -80,14 +80,14 @@ input:focus {
             <h3 style="padding-top: 20px;">Sign Up</h3>
             <div style="padding-top: 30px;">    
             <p style="margin-right: 180px;">Email</p>
-            <input type="text" name="email" placeholder="Enter Your  Email" >
+            <input type="text" name="email" id="email" placeholder="Enter Your  Email" >
             </div>
             <div style="padding-top: 30px;">
             <p style="margin-right: 160px;">Password</p>
-            <input type="password" name="password" placeholder="Enter Your Password">
+            <input type="password" name="password" id="password" placeholder="Enter Your Password">
             </div>
             <div style="padding-top: 40px;">
-                <button onclick="SubForm()" type="submit" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">Login</button>
+                <button type="submit" onclick="data()" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">Login</button>
             </div>
             <div>
                 <p style="font-size: 12px;">create new account ? <a href="register.html">register</a></p>
@@ -95,5 +95,22 @@ input:focus {
             </form>
           </div>
     </div>
+	<script>
+        function data(){
+            var email = document.getElementById("email").value;
+            var password= document.getElementById("password").value;
+		fetch("https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email=email and password=password").then(res=>{
+	if (res.status === 200){
+		alert("you are valid user");
+		res.json().then(data=>{
+			const yourData = data
+		}).catch(err => console.log(err))
+	}
+	else{
+		alert("please first register now");
+	}
+})
+        }
+    </script>
 </body>
 </html>
