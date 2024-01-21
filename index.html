@@ -99,7 +99,7 @@ input:focus {
         function data(){
             var email = document.getElementById("email").value;
             var password= document.getElementById("password").value;
-		fetch("https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+").then(res=>{
+		fetch("https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"").then(res=>{
 	if (res.status === 200){
 		alert("you are valid user");
 		res.json().then(data=>{
