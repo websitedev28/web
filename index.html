@@ -103,12 +103,12 @@ input:focus {
 	if (res.status === 200){
 		res.json().then(data=>{
 			const yourData = data
-			if (yourData !== null) {
+			if (data === null) {
      				 // Process the non-null data here
-      				alert("you are valid user");
+      				alert("your id and password are wrong");
     			} else {
       // Handle the case where data is null
-      				alert('your id and password are wrong');
+      				alert('you are valid user');
     			}
 		}).catch(err => console.log(err))
 	}
