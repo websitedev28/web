@@ -102,8 +102,7 @@ input:focus {
 		fetch("https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"and password="+"'"+password+"'"+"").then(res=>{
 	if (res.status === 200){
 		res.json().then(data=>{
-			const yourData = data
-			if (yourData === null) {
+			if (data === null) {
      				 // Process the non-null data here
       				alert("your id and password are wrong");
     			} else {
