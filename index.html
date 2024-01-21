@@ -101,9 +101,15 @@ input:focus {
             var password= document.getElementById("password").value;
 		fetch("https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"and password="+"'"+password+"'"+"").then(res=>{
 	if (res.status === 200){
-		alert("you are valid user");
 		res.json().then(data=>{
 			const yourData = data
+			if (data !== null) {
+     				 // Process the non-null data here
+      				alert("you are valid user");
+    			} else {
+      // Handle the case where data is null
+      				alert('your id and password are wrong');
+    			}
 		}).catch(err => console.log(err))
 	}
 	else{
