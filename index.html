@@ -104,7 +104,7 @@ input:focus {
 	if (res.status === 200){
 		// SUCCESS
 		res.json().then(data=>{
-			const yourData = data;
+			const yourData = new Array(data);
 			console.log(yourData);
 			console.log(yourData.email);
 			console.log(yourData.name);
