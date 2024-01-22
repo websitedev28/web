@@ -100,27 +100,18 @@ input:focus {
             var email = document.getElementById("email").value;
             var password= document.getElementById("password").value;
 		const apiUrl = "https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"and password="+"'"+password+"'";
-
-fetch(apiUrl)
-  .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      throw new Error("API request failed");
-    }
-  })
-  .then(data => {
-    if (data.length === 0) {
-      alert("Your email or password is incorrect");
-    } else {
-      alert('You are a valid user');
-      // You may want to perform additional actions for a valid user
-    }
-  })
-  .catch(err => {
-    console.log("Error:", err);
-    alert("Something went wrong. Please try again or register.");
-  });
+		fetch(apiUrl).then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>{
+			const yourData = data;
+			console.log(yourData);
+		}).catch(err => console.log(err))
+	}
+	else{
+		// ERROR
+	}
+})
         }
     </script>
 </body>
