@@ -106,11 +106,13 @@ input:focus {
 		res.json().then(data=>{
 			const yourData = data;
 			console.log(yourData);
+			console.log(data.email);
+			console.log(data.password);
 			if(data.email === email && data.password === password){
 				alert("invalid useer");
 			}else{
 				alert("valid user ");
-			
+			}
 		}).catch(err => console.log(err))
 	}
 	else{
