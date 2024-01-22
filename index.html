@@ -105,8 +105,8 @@ input:focus {
 		// SUCCESS
 		res.json().then(data=>{
 			const yourData = data;
-			let len3 = yourData[0].name;
-			let len4 = yourData[0].email;
+			let len3 = data[0].name;
+			let len4 = data[0].email;
 			console.log(len3);
 			console.log(len4);
 			 if (yourData.email === email && yourData.password === password) {
