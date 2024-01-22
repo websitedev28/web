@@ -104,7 +104,7 @@ input:focus {
 	if (res.status === 200){
 		// SUCCESS
 		res.json().then(data=>{
-			const yourData = new Array(data);
+			const yourData = data;
 			let len =  yourData.length;
 			console.log(len);
 			console.log(yourData.length);
