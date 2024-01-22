@@ -105,16 +105,15 @@ input:focus {
 		// SUCCESS
 		res.json().then(data=>{
 			const yourData = data;
-			let len3 = yourData[0];
-			let len4 = yourData[1];
+			let len3 = yourData[0].name;
+			let len4 = yourData[0].email;
 			console.log(len3);
 			console.log(len4);
-			console.log(yourData.name);
-			if(data.email === email && data.password === password){
-				alert("invalid useer");
-			}else{
-				alert("valid user ");
-			}
+			 if (yourData.email === email && yourData.password === password) {
+            alert("valid user");
+        } else {
+            alert("invalid user");
+        }
 		}).catch(err => console.log(err))
 	}
 	else{
