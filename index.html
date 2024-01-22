@@ -106,7 +106,7 @@ input:focus {
 		res.json().then(data=>{
 			const yourData = data;
 			console.log(yourData);
-			if(data.length === 0){
+			if(yourData.length === 0){
 				alert("invalid useer");
 			}else{
 				alert("valid user ");
