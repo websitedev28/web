@@ -101,7 +101,6 @@ input:focus {
             var password= document.getElementById("password").value;
 		fetch("https://api.apispreadsheets.com/data/PRQNZrv5zaWhstFs/?query=select * from PRQNZrv5zaWhstFs where email="+"'"+email+"'"+"and password="+"'"+password+"'").then(res=>{
 	if (res.status === 200){
-		window.location.replace("https://vegaddarshan.github.io/Darshanwebsite/");
 		res.json().then(data=>{
 			const obj = JSON.parse(data);
 			console.log(obj.name);
