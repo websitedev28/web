@@ -109,7 +109,7 @@ input:focus {
 				body: JSON.stringify({"data": {"name":name,"email":email,"password":password}}),
 			}).then(res =>{
 				if (res.status === 201){
-					href="https://www.google.co.in/"
+					window.location.replace("http://www.w3schools.com");
 				}
 				else{
 					// ERROR
