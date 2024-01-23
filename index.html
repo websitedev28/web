@@ -87,7 +87,7 @@ input:focus {
             <input type="password" name="password" id="password" placeholder="Enter Your Password">
             </div>
             <div style="padding-top: 40px;">
-                <button type="submit" onclick="data()" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">Login</button>
+                <button type="submit" onclick="retrieveData()" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">Login</button>
             </div>
             <div>
                 <p style="font-size: 12px;">create new account ? <a href="register.html">register</a></p>
@@ -96,21 +96,23 @@ input:focus {
           </div>
     </div>
 	<script>
-        function data(){
-            var email = document.getElementById("email").value;
-            var password= document.getElementById("password").value;
-		fetch("https://api.apispreadsheets.com/data/PRQNZrv5zaWhstFs/?query=select * from PRQNZrv5zaWhstFs where email="+"'"+email+"'"+"and password="+"'"+password+"'").then(res=>{
-	if (res.status === 200){
-		res.json().then(data=>{
-			const yourData= data;
-			alert(yourData.email);
-		}).catch(err => console.log(err))
-	}
-	else{
-		// ERROR
-	}
-})
-        }
+		function retrieveData() {
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
+    // Retrieve the JSON string from local storage
+    const userDataString = localStorage.getItem('userData');
+
+    // Parse the JSON string to get the original object
+    const userData = JSON.parse(userDataString);
+
+    // Use the data as needed
+    if (userData.email === email && userData.password === password) {
+        console.log("user are valid");
+        
+    } else {
+        console.log('No user data found in local storage.');
+    }
+}
     </script>
 </body>
 </html>
