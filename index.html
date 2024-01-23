@@ -103,7 +103,8 @@ input:focus {
 	if (res.status === 200){
 		res.json().then(data=>{
 			const yourData= data;
-			console.log(yourData.name);
+			console.log(yourData.email);
+			console.log(yourData.password);
 		}).catch(err => console.log(err))
 	}
 	else{
