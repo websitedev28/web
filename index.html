@@ -99,27 +99,6 @@ input:focus {
         function data(){
             var email = document.getElementById("email").value;
             var password= document.getElementById("password").value;
-		const apiUrl = "https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"and password="+"'"+password+"'";
-		fetch(apiUrl).then(res=>{
-	if (res.status === 200){
-		// SUCCESS
-		res.json().then(data=>{
-			const yourData = data;
-			console.log(yourData);
-			yourData.map((item) => {
-				console.log(item);
-			});
-			 if (yourData.email === email && yourData.password === password) {
-            alert("valid user");
-        } else {
-            alert("invalid user");
-        }
-		}).catch(err => console.log(err))
-	}
-	else{
-		// ERROR
-	}
-})
         }
     </script>
 </body>
