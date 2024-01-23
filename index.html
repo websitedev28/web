@@ -103,7 +103,9 @@ input:focus {
 	if (res.status === 200){
 		window.location.replace("https://vegaddarshan.github.io/Darshanwebsite/");
 		res.json().then(data=>{
-			const yourData = data
+			const yourData = data;
+			const obj = JSON.parse(yourData);
+			console.log(obj.name);
 		}).catch(err => console.log(err))
 	}
 	else{
