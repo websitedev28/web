@@ -106,9 +106,12 @@ input:focus {
 				// SUCCESS
 				res.json().then(data=>{
 				const yourData = data;
-				console.log(yourData.data[0].name);
-				console.log(yourData.data[0].email);
-				console.log(yourData.data[0].password);
+				var data1 = yourData.data[0].name;
+				var data2 = yourData.data[0].email;
+				var data3 = yourData.data[0].password;
+				console.log(data1);
+				console.log(data2);
+				console.log(data3);
 				
 				}).catch(err => console.log(err))
 			}
