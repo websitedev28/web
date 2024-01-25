@@ -109,9 +109,11 @@ input:focus {
 				var data1 = yourData.data[0].name;
 				var data2 = yourData.data[0].email;
 				var data3 = yourData.data[0].password;
-				console.log(data1);
-				console.log(data2);
-				console.log(data3);
+				if(data2 === email && data3 === password){
+					console.log("valid user ");	
+				}else{
+					console.log("invlaid user");
+				}
 				
 				}).catch(err => console.log(err))
 			}
