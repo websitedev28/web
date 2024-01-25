@@ -99,7 +99,7 @@ input:focus {
 		function retrieveData() {
 			const email = document.getElementById('email').value;
 			const password = document.getElementById('password').value;
-			const apiUrl = "https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from PRQNZrv5zaWhstFs where email="+"'"+email+"'"+"and password="+"'"+password+"'";
+			const apiUrl = "https://api.apispreadsheets.com/data/PRQNZrv5zaWhstFs/?query=select * from PRQNZrv5zaWhstFs where email="+"'"+email+"'"+"and password="+"'"+password+"'";
 
 			fetch(apiUrl).then(res=>{
 			if (res.status === 200){
