@@ -100,7 +100,7 @@ input:focus {
 			const email = document.getElementById('email').value;
 			const password = document.getElementById('password').value;
 			const apiUrl = "https://api.apispreadsheets.com/data/PRQNZrv5zaWhstFs/?query=select * from PRQNZrv5zaWhstFs where email="+"'"+email+"'"+"and password="+"'"+password+"'";
-
+			window.history.back();
 			fetch(apiUrl).then(res=>{
 			if (res.status === 200){
 				// SUCCESS
@@ -112,7 +112,7 @@ input:focus {
 				if(data2 === email && data3 === password){
 					alert("valid user ");
 					window.location.replace = "https://vegaddarshan.github.io/Darshanwebsite/";
-					window.history.back();
+					
 				}else{
 					alert("please register first");
 				}
@@ -122,7 +122,6 @@ input:focus {
 			else{
 				alert("please register now");
 			}
-			window.history.go(-1);
 		})
 }
     </script>
