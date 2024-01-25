@@ -99,19 +99,19 @@ input:focus {
 		function retrieveData() {
 			const email = document.getElementById('email').value;
 			const password = document.getElementById('password').value;
-    // Retrieve the JSON string from local storage
-    const userDataString = localStorage.getItem('userData');
+			const apiUrl = "https://api.apispreadsheets.com/data/vKUtnFjg28FjzslE/?query=select * from vKUtnFjg28FjzslE where email="+"'"+email+"'"+"and password="+"'"+password+"'";
 
-    // Parse the JSON string to get the original object
-    const userData = JSON.parse(userDataString);
-
-    // Use the data as needed
-    if (userData.email === email && userData.password === password) {
-        window.location.replace("https://vegaddarshan.github.io/Darshanwebsite/");
-        
-    } else {
-        alert('plaese register now ');
-    }
+			fetch(apiUrl).then(res=>{
+			if (res.status === 200){
+				// SUCCESS
+				res.json().then(data=>{
+				const yourData = data
+				}).catch(err => console.log(err))
+			}
+			else{
+				// ERROR
+			}
+		})
 }
     </script>
 </body>
