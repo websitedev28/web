@@ -106,7 +106,7 @@ input:focus {
 				// SUCCESS
 				res.json().then(data=>{
 				const yourData = data;
-				console.log(yourData[0]);
+				console.log(typeof(yourData));
 				
 				}).catch(err => console.log(err))
 			}
