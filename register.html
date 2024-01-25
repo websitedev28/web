@@ -104,18 +104,17 @@ input:focus {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-
-            const userData = {
-                name: name,
-                email: email,
-                password: password
-            };
-
-            const userDataString = JSON.stringify(userData);
-            localStorage.setItem('userData', userDataString);
-
-            // Call the function to display stored data
-            displayStoredData();
+		fetch("https://api.apispreadsheets.com/data/PRQNZrv5zaWhstFs/", {
+		method: "POST",
+		body: JSON.stringify({"data": {"name":name,"email":email,"password":password}}),
+		}).then(res =>{
+			if (res.status === 201){
+				// SUCCESS
+			}
+			else{
+		// ERROR
+			}
+		})
         }
 
 	</script>
