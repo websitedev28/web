@@ -112,13 +112,13 @@ input:focus {
 				if(data2 === email && data3 === password){
 					console.log("valid user ");	
 				}else{
-					console.log("invlaid user");
+					console.log("invalid user");
 				}
 				
-				}).catch(err => console.log(err))
+				}).catch(err => console.log("invalid user"))
 			}
 			else{
-				// ERROR
+				console.log("please register now");
 			}
 		})
 }
