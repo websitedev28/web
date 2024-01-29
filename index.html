@@ -76,6 +76,10 @@ input:focus {
 <body>
     <div class="main">
         <div class="sub col-sm-4 text-center" >
+		</div>
+		<div style="padding-top: 40px;">
+                <button type="submit" onclick="book()" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">book</button>
+            </div>
             <form id="myForm" >
             <h3 style="padding-top: 20px;">Sign Up</h3>
             <div style="padding-top: 30px;">    
@@ -89,9 +93,6 @@ input:focus {
             <div style="padding-top: 40px;">
                 <button type="submit" onclick="retrieveData()" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">Login</button>
             </div>
-		<div style="padding-top: 40px;">
-                <button type="submit" href="books.html" id="btn1" style="height: 40px; width: 200px; border-radius: 15px; font-size: 20px;">book</button>
-            </div>
             <div>
                 <p style="font-size: 12px;">create new account ? <a href="register.html">register</a></p>
             </div>
@@ -99,6 +100,9 @@ input:focus {
           </div>
     </div>
 	<script>
+		function book(){
+			window.location.href = "books.html";
+		}
 		function retrieveData() {
 			const email = document.getElementById('email').value;
 			const password = document.getElementById('password').value;
