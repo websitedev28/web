@@ -238,24 +238,29 @@ header{
   </header>
   <div id="pdf" class="text-center">
     <div class="chapterview">
-        <div id="inner" onclick="openbook()" class="text-white text-center">
+        <div id="inner" onclick="openbook1()" class="text-white text-center">
             <div class="chapter"> 
-                <h2>chapter 1 :- indexing and slicing</h2>
+                <h2>Unit 1 :- Flowchart and Algorithm</h2>
             </div>
         </div>
-        <div id="inner" class="text-white text-center">
+        <div id="inner" onclick="openbook2()" class="text-white text-center">
             <div class="chapter"> 
-                <h2>chapter 2</h2>
+                <h2>Unit 2 :- Python Introduction</h2>
             </div>
         </div>
-        <div id="inner" class="text-white text-center">
+        <div id="inner" onclick="openbook3()" class="text-white text-center">
             <div class="chapter"> 
-                <h2>chapter 3</h2>
+                <h2>Unit 3 :- Flow Of Control</h2>
             </div>
         </div>
-        <div id="inner" class="text-white text-center">
+        <div id="inner" onclick="openbook4()" class="text-white text-center">
             <div class="chapter"> 
-                <h2>chapter 4</h2>
+                <h2>Unit 4 :- Functions</h2>
+            </div>
+        </div>
+        <div id="inner" onclick="openbook5()" class="text-white text-center">
+            <div class="chapter"> 
+                <h2>Unit 5 :- Strings And Lists</h2>
             </div>
         </div>
         
@@ -286,8 +291,20 @@ header{
         AOS.init();
       </script>
       <script>
-        function openbook(){
-          window.location.href = "pdfviewer.html";
+        function openbook1(){
+          window.location.href = "python1.html";
+        }
+        function openbook2(){
+          window.location.href = "python2.html";
+        }
+        function openbook3(){
+          window.location.href = "python3.html";
+        }
+        function openbook4(){
+          window.location.href = "python4.html";
+        }
+        function openbook5(){
+          window.location.href = "python5.html";
         }
       </script>
 
