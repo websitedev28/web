@@ -47,41 +47,35 @@
             text-align: center;
         }
         #title1{
-            padding-top: 40px; 
+            padding-top: 30px; 
             width: 80%; 
             margin: auto;
         }
         #title2{
-            padding-top: 40px; 
+            padding-top: 50px; 
             width: 80%; 
             margin: auto;
+        }
+        #input-tag11,#input-tag12{
+            height: 45px; 
+            width: 100%; 
+            margin-top: 8px;
+        }
+       #cancel{
+            padding-top: 4px;
+            display: none;
+       }
+        #msg2{
+            color: rgb(244, 10, 10);
+            padding-left: 5px;
+            display: none;
         }
         .r-msg{
             display: flex;
             text-align: center;
             align-items: center;
             justify-content: center;
-            height: 50px;
-        }
-        #title3{
-            padding-top: 10px;
-            width: 80%; 
-            margin: auto;
-        }
-        #input-tag1,#input-tag2,#input-tag3 {
-            height: 45px; 
-            width: 100%; 
-            margin-top: 8px;
-        }
-        #msg1{
-            color: green;
-            padding-left: 5px;
-            display: none;
-        }
-        #msg2{
-            color: green;
-            padding-left: 5px;
-            display: none;
+            height: 100px;
         }
         #btn1{
             height: 50px; 
@@ -126,32 +120,29 @@ input:focus {
     <div class="main">
         <div class="main2">
             <div class="header">
-                <h1 style="color: rgb(231, 231, 232);">Register</h1>
+                <h1 style="color: rgb(231, 231, 232);">Log In</h1>
             </div>
             <div class="main-content">
-                    <form id="Register-form">
+                    <form id="Signin-form">
                         <div class="r-msg">
-                            <i class="fa fa-check-circle" id="msg1" style="padding-top: 4px; font-size:20px; color:green;"></i>
-                            <p id="msg2">register successfully</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"height="25" id="cancel" viewBox="0 0 48 48">
+                                <path fill="#f44336" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"></path><path fill="#fff" d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"></path>
+                                </svg>
+                            <p id="msg2">invalid email and password</p>
                         </div>
-                        
-                    <div id="title3">    
-                    <h1 style="text-align: start;">User Name</h1>
-                    <input type="text" name="username" id="input-tag1" placeholder="Enter Your  Email" >
-                    </div>
                     <div id="title1">    
                     <h1 style="text-align: start;">Email</h1>
-                    <input type="text" name="email" id="input-tag2" placeholder="Enter Your  Email" >
+                    <input type="text" name="email" id="input-tag11" placeholder="Enter Your  Email" >
                     </div>
                     <div id="title2">
                     <h1 style="text-align: start;">Password</p>
-                    <input type="password" name="password" id="input-tag3" placeholder="Enter Your Password">
+                    <input type="password" name="password" id="input-tag12" placeholder="Enter Your Password">
                     </div>
-                    <div style="padding-top: 80px;">
-                        <button type="submit" id="btn1" >Register</button>
+                    <div style="padding-top: 100px;">
+                        <button type="submit" id="btn1" >Login</button>
                     </div>
                     <div>
-                        <p style="font-size: 15px;">already have account to ? <a style="color: red;" href="login.html">Log in</a></p>
+                        <p style="font-size: 15px;">Creater New Acccount ? <a style="color: red;" href="register.html">register</a></p>
                     </div>
                     </form>
                   
@@ -161,8 +152,8 @@ input:focus {
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-        import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+        import { getDatabase,get,ref,child} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -183,32 +174,43 @@ input:focus {
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const db=getDatabase();
+        const dbref=ref(db);
         const auth= getAuth(app);
 
-        let email=document.getElementById("input-tag2");
-        let password=document.getElementById("input-tag3");
+        let email=document.getElementById("input-tag11");
+        let password=document.getElementById("input-tag12");
         let username=document.getElementById("input-tag1");
-        let coin=0;
-        console.log(coin);
+        let coin=10;
+        function errormsg(){
+            document.getElementById("msg2").style.display = "flex";
+            document.getElementById("cancel").style.display = "flex";
+        }
         let btn=document.getElementById("btn1");
-        let form=document.getElementById("Register-form");
-        let RegisterUser = evt => {
+        let form=document.getElementById("Signin-form");
+        let SignInUser = evt => {
             evt.preventDefault();
-            createUserWithEmailAndPassword(auth, email.value, password.value).then((credentials) => {
-                console.log(credentials);
-                set(ref(db, 'users/' + credentials.user.uid),{
-                    username: username.value,
-                    email: email.value,
-                    coins: coin,
+            signInWithEmailAndPassword(auth, email.value, password.value).then((credentials) => {
+                get(child(dbref, 'users/' + credentials.user.uid)).then((snapshot)=>{
+                    if(snapshot.exists){
+                        sessionStorage.setItem("user-info",JSON.stringify({
+                            username: snapshot.val().username,
+                            email: snapshot.val().email,
+                            coin: snapshot.val().coin
+
+                        }))
+                        sessionStorage.setItem("user-creds",JSON.stringify(credentials.user));
+                        window.location.href="main.html";
+                    }
                 })
-                document.getElementById("msg1").style.display = "flex";
-                document.getElementById("msg2").style.display = "flex";
+                console.log(credentials);
+
             })
             .catch((error)=>{
                 console.log(error);
+                errormsg();
             })     
         }
-        form.addEventListener('submit',RegisterUser);
+        form.addEventListener('submit',SignInUser);
       </script>
 </body>
 </html>

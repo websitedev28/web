@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";;
+        }
+        .main{
+            background-color: black;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .main2{
+            height: 100vh;
+            background-color: azure;
+            width: 420px;
+            max-width: 420px;
+            margin: auto;
+        }
+        .header{
+            padding-top: 250px;
+            display: flex;
+            margin: auto;
+            height: 100px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .header h1{
+            padding: 10px;
+            font-size: 40px;
+        }
+        .main-content{
+            height: 620px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .user-header{
+            margin: auto;
+            height: 220px;
+            width: 95%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        #profile{
+            
+            height: 50px;
+            width: 12%;
+        }
+        #username{
+            height: 50px;
+            width: 74%;
+            text-align: start;
+            padding-left: 8px;
+            padding-top: 2px;
+        }
+        #setting{
+            
+            height: 50px;
+            width: 12%;
+        }
+        #profile img{
+            height: 50px;
+            width: 100%;
+            border-radius: 50px;
+            border: 2px solid black;
+        }
+        #setting img{
+            padding: 5px;
+            height: 40px;
+            width: 90%;
+        }
+        .tasks{
+            margin: auto;
+            height: 92px;
+            width: 100%;
+            padding-top: 35px;
+        }
+        .task-name{
+            display: flex;
+            margin: auto;
+            background-color: rgb(234, 233, 233);
+            height: 90px;
+            width: 90%;
+            border-radius: 30px;
+            box-shadow: 10px 15px 10px rgba(172, 172, 172, 0.909)
+        }
+        .task-icon{
+            background-color: transparent;
+            height: 90px;
+            width: 25%;
+            
+        }
+        .task-icon img{
+            height: 80px;
+            width: 80%;
+            padding-left: 20px;
+            padding-top: 5px;
+
+        }
+        .name-of-task{
+            text-align: start;
+            height: 90px;
+            width: 80%;
+        }
+        .name-of-task h1{
+            padding-top: 22px;
+            padding-left: 25px;
+        }
+        .heading{
+            height: 80px;
+        }
+        .heading p{
+            font-size: 50px;
+        }
+        .btns{
+            height: 140px;
+        }
+        #btn1{
+            margin-top: 20px;
+            height: 50px;
+            width: 200px;
+            font-size: 25px;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0px 15px 30px  rgba(165, 165, 165, 0.71);
+            background-color: blue;
+            color: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="main2">
+            <div class="header">
+                <div class="user-header">
+                    <div class="heading">
+                        <p> Click-To-Earn</p> 
+                    </div>
+                    <div class="btns">
+                        <button id="btn1" onclick="Register()">Register</button>
+                        <button id="btn1" onclick="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function Register(){
+            window.location.href = "register.html";
+        }
+        function login(){
+            window.location.href = "login.html";
+        }
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAoTwRrsFF4RF3FnW_v6nPzxTY5CuHKZe4",
+          authDomain: "webapp-28.firebaseapp.com",
+          projectId: "webapp-28",
+          storageBucket: "webapp-28.appspot.com",
+          messagingSenderId: "588711188170",
+          appId: "1:588711188170:web:7b27f7411bebd9ccb8c633",
+          measurementId: "G-9VSLJ1BSH8"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db=getDatabase();
+        const auth= getAuth(app);
+
+        let Usercred= JSON.parse(sessionStorage.getItem("user-cerds"));
+        let Userinfo= JSON.parse(sessionStorage.getItem("user-info"));
+        let USERNAME=document.getElementById('us-name');
+        USERNAME.innerHTML=Userinfo.username;
+        let RegisterUser = evt => {
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, email.value, password.value).then((credentials) => {
+                console.log(credentials);
+                alert("succesfully register");
+            })
+            .catch((error)=>{
+                console.log(error);
+            })     
+        }
+        form.addEventListener('submit',RegisterUser);
+      </script>
+</body>
+</html>
