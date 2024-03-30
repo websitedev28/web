@@ -40,10 +40,11 @@
             font-size: 40px;
         }
         .main-content{
-            height: 620px;
+            height: 570px;
             justify-content: center;
             align-items: center;
             text-align: center;
+            overflow: auto;
         }
         .user-header{
             display: flex;
@@ -87,6 +88,12 @@
             width: 100%;
             padding-top: 35px;
         }
+        .footer{
+            border-top: 2px solid;
+            display: flex; 
+            height: 50px;
+
+        }
         .task-name{
             display: flex;
             margin: auto;
@@ -118,6 +125,32 @@
             padding-top: 22px;
             padding-left: 25px;
         }
+        .tab1{
+
+            width: 34%;
+            height: 90%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .tab2{
+            background-color: rgb(16, 244, 47);
+            width: 33.3%;
+            height: 100%;
+        }
+        .tab3{
+            background-color: rgb(246, 12, 230);
+            width: 33.3%;
+            height: 100%;
+        }
+        #tab-png{
+            height: 30px;
+            padding-top: 8px;
+        }
+        .active{
+            filter: drop-shadow(0px 3px 2px rgb(113, 113, 242));
+        }
+
 
     </style>
 </head>
@@ -170,14 +203,104 @@
                         </div>
                     </div>
                 </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div onclick="youtube()" class="task-name">
+                        <div class="task-icon">
+                            <img src="http://clipart-library.com/images_k/youtube-transparent-png/youtube-transparent-png-15.png">
+                        </div>
+                        <div class="name-of-task">
+                            <h1>Youtube</h1>
+                        </div>
+                    </div>
+                </div>
+
                 
                 
             </div>
+            <footer>
+                <div class="footer">
+                    <div class="tab1" >
+                        <img id="tab-png" src="home.png">
+                        <p>Home</p>
+                    </div>
+                    <div class="tab1">
+                        <img id="tab-png"  src="coin.png">
+                        <p>Withdrawal</p>
+                    </div>
+                    <div class="tab1">
+                        <img id="tab-png" src="setting.png">
+                        <p>Setting</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
     <script>
         function youtube(){
             window.location.href = "https://www.youtube.com/";
+        }
+        function tabclick(){
+            document.getElementById("tab-png").style.filter = "drop-shadow(0px 3px 2px rgb(113, 113, 242));"; 
         }
     </script>
     <script type="module">
