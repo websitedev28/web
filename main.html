@@ -367,7 +367,7 @@
         let USERNAME=document.getElementById('us-name');
         let Coin=document.getElementById('coin');
         USERNAME.innerHTML=Userinfo.username;
-        Coin.innerHTML=Userinfo.coins;
+        Coin.innerHTML=Userinfo.coin;
         let RegisterUser = evt => {
             evt.preventDefault();
             createUserWithEmailAndPassword(auth, email.value, password.value).then((credentials) => {
