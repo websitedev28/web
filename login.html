@@ -195,7 +195,7 @@ input:focus {
                         sessionStorage.setItem("user-info",JSON.stringify({
                             username: snapshot.val().username,
                             email: snapshot.val().email,
-                            coin: snapshot.val().coin
+                            coin: snapshot.val().coins,
 
                         }))
                         sessionStorage.setItem("user-creds",JSON.stringify(credentials.user));
